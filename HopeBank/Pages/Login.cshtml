@@ -1,0 +1,214 @@
+﻿@page
+@model HopeBank.Pages.LoginModel
+@{
+   // Layout = null;
+}
+<style type="text/css">
+    body {
+        font-family: 'Arial', sans-serif;
+        background: #f4f7f9;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .login_cont {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    h2 {
+        margin: 0 0 15px;
+        font-size: 1.5rem;
+        color: #444;
+        text-align: center;
+    }
+
+    .form p {
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+        font-size: 0.9rem;
+        margin-bottom: 4px; /* уменьшен отступ между label и input */
+        color: #555;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px; /* стандартный отступ внутри поля */
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        transition: border-color 0.3s;
+        margin-bottom: 10px; /* немного уменьшен отступ снизу */
+    }
+
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+/*     label {
+        display: block;
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+        color: #555;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        transition: border-color 0.3s;
+    }
+
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+        } */
+
+    .btn {
+        background: #007bff;
+        color: #fff;
+        padding: 10px 15px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        transition: background 0.3s;
+    }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+    .link {
+        color: #007bff;
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+    .error {
+        color: red;
+        font-style: italic;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+</style>
+<div class="login_cont">
+    <form id="login_form" method="post" class="form" accept-charset="utf-8">
+        <!--<h2>Login</h2>-->
+        <p>
+            <label>Телефон</label><br />
+            <input name="phone" value="@Model.Phone" pattern="[0-9]{8,12}"
+                   title="Телефон должен состоять от 8 до 12 цифр"
+                   required />
+        </p>
+        <p>
+            <label>Пароль</label><br />
+            <input type="password" name="password" required />
+        </p>
+        <input type="submit" value="Войти" class="btn" />
+        <p class="error">@Model.Error</p>
+        <p><a href="#" class="link" onclick="loginPage.show_register()">Регистрация</a></p>
+    </form>
+
+    <form id="register_form" method="post" class="form" accept-charset="utf-8">
+        <!--<h2>Регистрация</h2>-->
+        <p>
+            <label>Телефон</label><br />
+            <input name="phone" pattern="[0-9]{8,12}"
+                   title="Телефон должен состоять от 8 до 12 цифр"
+                   required />
+        </p>
+        <p>
+            <label>Пароль</label><br />
+            <input type="password" name="password" required />
+        </p>
+        <p>
+            <label>Email</label><br />
+            <input name="email" type="email" />
+        </p>
+        <p>
+            <label>Имя</label><br />
+            <input name="firstname" required />
+        </p>
+        <p>
+            <label>Фамилия</label><br />
+            <input name="lastname" required />
+        </p>
+        <input type="hidden" name="isregister" value="1" />
+        <input type="submit" value="Создать" class="btn" />
+        <p>
+            <a href="#" class="link" onclick="loginPage.show_login()">Войти</a>, если вы уже зарегистрированы
+        </p>
+    </form>
+</div>
+
+
+@* <div class="login_cont">
+    <form id="login_form" method='post'>
+    <p>
+        <label>Phone number</label><br />
+        <input name='phone' value="@Model.Phone" pattern="[0-9]{8,12}" title="Phone number must contain only digits (from 8 to 12)" required />
+    </p>
+    <p>
+        <label>Password</label><br />
+        <input type='password' name='password' required />
+    </p>
+    <input type='submit' value='Login' />
+    <p style="color:red;font-style: italic;">@Model.Error</p>
+    <p><a href="#" onclick="loginPage.show_register()">Register</a></p>
+</form>
+
+    <form id="register_form" method='post'>
+        <p>
+            <label>Phone number</label><br />
+            <input name='phone' pattern="[0-9]{8,12}" title="Phone number must contain only digits (from 8 to 12)" required />
+        </p>
+    <p>
+        <label>Password</label><br />
+        <input type='password' name='password' required />
+    </p>
+    <p>
+        <label>Email</label><br />
+        <input name='email' />
+    </p>
+    <p>
+        <label>FirstName</label><br />
+        <input name='firstname' required />
+    </p>
+    <p>
+        <label>LastName</label><br />
+        <input name='lastname' required />
+    </p>
+    <input type="hidden" name="isregister" value="1"/>
+
+    <input type='submit' value='Create Account' />
+        <p><a href="#" onclick="loginPage.show_login()">Login</a>, if have account</p>
+</form>
+</div> *@
+@section Scripts{
+  <script type="text/javascript">
+      loginPage.init();
+  </script>
+}

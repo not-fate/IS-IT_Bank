@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\source\HopeBank\HopeBank\bin\Release\net8.0\publish\</_PublishTargetUrl>
+    <History>True|2025-01-17T03:17:50.0634364Z;True|2025-01-17T06:12:07.8704551+03:00;True|2025-01-17T05:48:50.8471839+03:00;True|2025-01-17T05:47:58.9102026+03:00;True|2025-01-17T05:45:52.9054033+03:00;True|2025-01-17T05:38:29.7361412+03:00;False|2025-01-17T05:38:14.8396088+03:00;True|2025-01-17T05:25:20.8583269+03:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

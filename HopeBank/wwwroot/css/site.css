@@ -1,0 +1,88 @@
+.login_cont #login_form {
+    display:block;
+}
+.login_cont #register_form {
+    display: none;
+}
+
+.login_cont_register #register_form {
+    display: block;
+}
+
+.login_cont_register #login_form {
+    display: none;
+}
+
+.transaction-amount{
+    font-weight:bold;
+}
+
+.income .transaction-amount, .balance_income {
+    color: #50C878;
+}
+.outcome .transaction-amount, .balance_outcome {
+    color: #DC143C;
+}
+
+/*index.cshtml*/
+.errorinfo {
+    display: none;
+    font-style: italic;
+}
+.trans_acc_notfound .errorinfo {
+    display:block
+}
+
+.transfer_commit {
+    display: none;
+}
+.trans_acc_finded .transfer_commit{
+    display:block;
+}
+
+/* Общие стили */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f4f7f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #007bff;
+    color: white;
+    border-bottom: 3px solid #0056b3;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+    .nav-link:hover {
+        color: #ffcc00;
+    }

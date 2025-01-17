@@ -1,0 +1,9 @@
+Елси после установки SqlLocalDB не можем подсоединииться то пробуем вручную перезхапустить через комнадную строку
+
+SqlLocalDB delete MSSQLLocalDB -удаляем старый елси проблемы с ним
+
+SqlLocalDB create MSSQLLocalDB -
+SqlLocalDB start MSSQLLocalDB -   и устартуем новый
+
+sqllocaldb info MSSQLLocalDB
+

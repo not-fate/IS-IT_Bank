@@ -1,0 +1,141 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "User list";
+}
+@* <h1>@ViewData["Title"]</h1> *@
+<style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        .table-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background-color: #007bff;
+            color: white;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+/*         tr:hover {
+            background-color: #f1f1f1;
+        } */
+
+        .is-admin {
+            text-align: center;
+        }
+
+        input[type="checkbox"] {
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        @@media (max-width: 768px) {
+            th, td {
+                font-size: 12px;
+                padding: 8px;
+            }
+        }
+    /* Стили для поля ввода */
+    .input-field {
+        width: 100%;
+        padding: 8px 12px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease;
+    }
+
+        /* При фокусе на поле ввода */
+        .input-field:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+    </style>
+<header class="header">
+    <div class="logo">Банк</div>
+    <nav class="nav">
+        <a href="index" class="nav-link">Главная</a>
+        <a href="admin" id="isadmin_menu" class="nav-link">Управление</a>
+        <a href="/login?ReturnUrl=%2F" class="nav-link">Выйти</a>
+    </nav>
+</header>
+<h1>Список клиентов</h1>
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Телефон</th>
+                <th>Email</th>
+                <th style="display:none;">Password</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Баланс</th>
+                <th class="is-admin">Admin</th>
+                <th>Макс. кредит</th>
+            </tr>
+        </thead>
+        <tbody>
+            <template id="row_template">
+                <tr>
+                    <td class="phone">+123456789</td>
+                    <td class="email">user@example.com</td>
+                    <td style="display:none;">********</td>
+                    <td class="firstname">John</td>
+                    <td class="lastname">Doe</td>
+                    <td class="amount">$5000</td>
+                    <td class="is-admin"><input class="isadmin" type="checkbox"></td>
+                    <td><input class="input-field maxcredit" type="text" value="5000" /></td>
+                </tr>
+            </template>
+            <tr>
+                <td>+987654321</td>
+                <td>jane.doe@example.com</td>
+                <td>********</td>
+                <td>Jane</td>
+                <td>Doe</td>
+                <td>$3000</td>
+                <td class="is-admin"><input type="checkbox" disabled></td>
+            </tr>
+            <!-- Additional rows can be added here -->
+        </tbody>
+    </table>
+</div>
+@section Scripts {
+    <script type="text/javascript">
+        adminPage.init();
+    </script>
+}
